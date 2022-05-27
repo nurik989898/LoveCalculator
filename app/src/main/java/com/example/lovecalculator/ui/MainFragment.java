@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getDataFromLoveApi();
         initClickers();
+        navController = NavHostFragment.findNavController(this);
     }
 
 
@@ -59,13 +61,15 @@ public class MainFragment extends Fragment {
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
             if (response.isSuccessful()){
-                Fragment fragment = new MainFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString("nas",response.body().percentage);
-                fragment.setArguments(bundle);
-                navController.navigate(R.id.action_mainFragment_to_secondFragment,bundle);
                 Log.e("ololo","OnResponse " + response.body().percentage);
-
+                binding.btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        navController.navigate(R.id.secondFragment,bundle);
+                    }
+                });
             }
             }
 
