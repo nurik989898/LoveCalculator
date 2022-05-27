@@ -59,8 +59,10 @@ public class MainFragment extends Fragment {
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
             if (response.isSuccessful()){
+                Fragment fragment = new MainFragment();
                 Bundle bundle = new Bundle();
                 bundle.putString("nas",response.body().percentage);
+                fragment.setArguments(bundle);
                 navController.navigate(R.id.action_mainFragment_to_secondFragment,bundle);
                 Log.e("ololo","OnResponse " + response.body().percentage);
 

@@ -9,12 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lovecalculator.R;
+import com.example.lovecalculator.databinding.FragmentMainBinding;
+import com.example.lovecalculator.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
+    FragmentSecondBinding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        binding = FragmentSecondBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
+        Bundle arguments = getArguments();
+        String percentage = arguments.getString("nas");
+        binding.result.setText(percentage);
     }
 }
