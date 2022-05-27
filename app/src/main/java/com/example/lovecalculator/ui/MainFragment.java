@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import retrofit2.Response;
 
 public class MainFragment extends Fragment {
     FragmentMainBinding binding;
+    NavController navController;
     private  final  String HOST = "love-calculator.p.rapidapi.com";
     public static final String KEY = "0543a92391mshbc36b91471d70ddp16c854jsn1f8ee85720a4";
     @Override
@@ -38,18 +40,8 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         getDataFromLoveApi();
         initClickers();
-        binding.btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                send();
-            }
-        });
     }
 
-    private void send() {
-       Bundle bundle = new Bundle();
-
-    }
 
     private void initClickers() {
         binding.btn.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +60,8 @@ public class MainFragment extends Fragment {
             public void onResponse(Call<Model> call, Response<Model> response) {
             if (response.isSuccessful()){
                 Bundle bundle = new Bundle();
+                bundle.putString("nas",response.body().percentage);
+                navController.navigate(R.id.action_mainFragment_to_secondFragment,bundle);
                 Log.e("ololo","OnResponse " + response.body().percentage);
 
             }
