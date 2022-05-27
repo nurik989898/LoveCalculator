@@ -55,8 +55,8 @@ public class MainFragment extends Fragment {
     }
 
     private void getDataFromLoveApi() {
-        String firstName=binding.editOne.getText().toString();
-        String secondName=binding.edittwo.getText().toString();
+        String firstName=binding.EditOne.getText().toString();
+        String secondName=binding.EditTwo.getText().toString();
         App.api.loveCalculate(firstName,secondName,HOST,KEY).enqueue(new Callback<Model>() {
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
