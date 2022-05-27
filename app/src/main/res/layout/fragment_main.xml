@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purple_200"
+    android:orientation="vertical"
+    tools:context=".ui.MainFragment">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="750dp"
+        android:background="@drawable/tree"
+
+        />
+</RelativeLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Calculate Your Love"
+        android:textAllCaps="true"
+        android:fontFamily="@font/mart"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/man"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <EditText
+       android:id="@+id/editOne"
+       android:layout_width="300dp"
+       android:layout_height="50dp"
+       android:textSize="20dp"
+      android:layout_gravity="center"
+        android:background="@color/purple_400"
+        android:fontFamily="@font/cinzel"
+        android:gravity="center"
+       android:hint="Enter boy name...."
+       android:textColor="@color/black"/>
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/girl"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/edittwo"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:background="@color/purple_400"
+        android:fontFamily="@font/cinzel"
+        android:gravity="center"
+        android:hint="Enter girl name...."
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:fontFamily="@font/mart"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:text="Submit"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn"/>
+</LinearLayout>
+</RelativeLayout>
