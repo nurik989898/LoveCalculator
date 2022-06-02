@@ -39,34 +39,36 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getDataFromLoveApi();
         initClickers();
         navController = NavHostFragment.findNavController(this);
     }
-
-
     private void initClickers() {
         binding.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               getDataFromLoveApi();
+                String firstName=binding.EditOne.getText().toString();
+                String secondName=binding.EditTwo.getText().toString();
+               getDataFromLoveApi(firstName,secondName);
             }
         });
     }
 
-    private void getDataFromLoveApi() {
-        String firstName=binding.EditOne.getText().toString();
-        String secondName=binding.EditTwo.getText().toString();
-        App.api.loveCalculate(firstName,secondName,HOST,KEY).enqueue(new Callback<Model>() {
+    private void getDataFromLoveApi(String first,String second) {
+
+        App.api.loveCalculate(first,second,HOST,KEY).enqueue(new Callback<Model>() {
             @Override
             public void onResponse(Call<Model> call, Response<Model> response) {
             if (response.isSuccessful()){
-                Bundle bundle = new Bundle();
-                bundle.putString("nas",response.body().percentage);
-                Log.e("ololo","OnResponse " + response.body().percentage);
+
                 binding.btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("nas",response.body().percentage);
+                        bundle.putString("hah",response.body().firstName);
+                        bundle.putString("ha",response.body().secondName);
+                        bundle.putString("h",response.body().result);
+                        Log.e("ololo","OnResponse " + response.body().percentage);
                         navController.navigate(R.id.secondFragment,bundle);
                     }
                 });

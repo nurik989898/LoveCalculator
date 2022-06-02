@@ -31,7 +31,12 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         String percentage = getArguments().getString("nas");
         binding.result.setText(percentage);
-
+        String firstname = getArguments().getString("hah");
+        binding.Anny.setText(firstname);
+        String secondName = getArguments().getString("ha");
+        binding.bill.setText(secondName);
+        String desc = getArguments().getString("h");
+        binding.desc.setText(desc);
         navController = NavHostFragment.findNavController(this);
         binding.btnAgain.setOnClickListener(new View.OnClickListener() {
             @Override
