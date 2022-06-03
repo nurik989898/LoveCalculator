@@ -47,5 +47,7 @@ dependencies {
     // Java language implementation
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
-
+    //viewModel
+    implementation 'android.arch.lifecycle:viewmodel:1.1.1'
+    annotationProcessor 'android.arch.lifecycle:compiler:1.1.1'
 }
