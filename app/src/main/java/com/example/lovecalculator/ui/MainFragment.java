@@ -21,12 +21,13 @@ import com.example.lovecalculator.network.Model;
 import com.example.lovecalculator.repository.Repository;
 import com.example.lovecalculator.viewModel.MainViewModel;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
+@AndroidEntryPoint
 public class MainFragment extends Fragment {
     FragmentMainBinding binding;
     NavController navController;
